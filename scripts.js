@@ -15,12 +15,22 @@ const handlingForms = {
   data() {
     return {
       members: window.members,
-      newMember: {
-        fname: null,
-        lname: null,
-        instrument: null,
-      },
+      newMember: {},
     };
+  },
+  methods: {
+    addMember: function () {
+      if (
+        this.newMember.fname &&
+        this.newMember.lname &&
+        this.newMember.instrument
+      ) {
+        this.members.push(this.newMember);
+        this.newMember = {};
+      } else {
+        alert("Todos os campos devem ser preenchidos!");
+      }
+    },
   },
 };
 
